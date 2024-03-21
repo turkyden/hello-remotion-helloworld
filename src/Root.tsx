@@ -13,6 +13,19 @@ export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
+				id="NBAVideo16v9"
+				component={NBAVideo}
+				calculateMetadata={calculateNBAVideoMetadata}
+				schema={NBAVideoSchema}
+				width={1920}
+				height={1080}
+				defaultProps={{
+					src: staticFile('nba.mov'),
+					src_fire: staticFile('focus.gif'),
+					remotion: '16:9'
+				}}
+			/>
+			<Composition
 				// You can take the "id" to render a video:
 				// npx remotion render src/index.ts <id> out/video.mp4
 				id="HelloWorld"
@@ -43,17 +56,6 @@ export const RemotionRoot: React.FC = () => {
 				defaultProps={{
 					logoColor1: '#91dAE2' as const,
 					logoColor2: '#86A8E7' as const,
-				}}
-			/>
-			<Composition
-				id="NBAVideo"
-				component={NBAVideo}
-				calculateMetadata={calculateNBAVideoMetadata}
-				schema={NBAVideoSchema}
-				width={1080}
-				height={1920}
-				defaultProps={{
-					src: staticFile('nba.mov'),
 				}}
 			/>
 		</>
